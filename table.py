@@ -1,4 +1,4 @@
 from logic import *
 
-bisect(lb,ub,max_iter)
+print(bisect(-0.2,0.1,20,0.5))
 print (tabulate(table, headers=["Iteration", "Root", "Error(%)"]))

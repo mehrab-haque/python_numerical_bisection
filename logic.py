@@ -3,20 +3,17 @@ from tabulate import tabulate
 K=0.05
 pt=3
 
-lb=-0.5
-ub=0.1
 max_iter=20
-maxErrorPercentage=0.5
 
-prevRoot = (ub+lb)/2
+prevRoot = 0
 
 table = []
 
 def func(x):
     return (x/(1-x)*(2*pt/(2+x))**0.5)-K
 
-def bisect(lowerBound,upperBound,iteration):
-    global ub,lb,prevRoot
+def bisect(lowerBound,upperBound,iteration,maxErrorPercentage):
+    global prevRoot
     if iteration==0:
         return prevRoot
     currentRoot=(upperBound+lowerBound)/2
@@ -34,7 +31,7 @@ def bisect(lowerBound,upperBound,iteration):
     else:
         lowerBound=currentRoot
     prevRoot=currentRoot
-    return bisect(lowerBound,upperBound,iteration-1)
+    return bisect(lowerBound,upperBound,iteration-1,maxErrorPercentage)
 
 
 
